@@ -12,6 +12,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var dice1=2;
+  var dice2=3;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -75,13 +77,13 @@ class _MyAppState extends State<MyApp> {
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: Expanded(child: Image.asset('images/dice1.png')),
+                      child: Expanded(child: Image.asset('images/dice$dice1.png')),
                     ),
                   ),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: Expanded(child: Image.asset('images/dice2.png')),
+                      child: Expanded(child: Image.asset('images/dice$dice2.png')),
                     ),
                   ),
                 ],
@@ -116,6 +118,32 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ],
               ),
+              SizedBox(height: 30,),
+              TextButton(
+                onPressed: (){
+                  setState(() {
+                    dice1=3;
+                    dice2=6;
+                  });
+                },
+                child: Container(
+                
+                  width: 115,
+                  height: 55,
+                  padding: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(width: 3,color: Colors.orange)
+                  ),
+                  child: Text('Start',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight(1000),
+                    color: Colors.white
+                  ),),
+                ),
+              )
 
             ],
 
