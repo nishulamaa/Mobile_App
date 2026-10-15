@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   var pressed1 = true;
   var pressed2 = false;
   var winner = "?";
-
+  var started=false;
 
   @override
   Widget build(BuildContext context) {
@@ -181,23 +181,24 @@ class _MyAppState extends State<MyApp> {
                   setState(() {
                     dice1 = Random().nextInt(6)+1;
                     dice2 = Random().nextInt(6)+1;
+                    started = !started;
                   });
                 },
                 child: Container(
                   width: 115,
-                  height: 55,
+                 // height: 55,
                   padding: EdgeInsets.all(1),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    border: Border.all(width: 3, color: Colors.orange)
+                    border: Border.all(width: 3, color: started ? Colors.orange : Colors.white)
                   ),
                   child: Text(
                     
-                    'start',
+                    started ? "Re-Start":"Start",
                     
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                                fontSize: 30,
+                                fontSize: 20,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold
                               ),
